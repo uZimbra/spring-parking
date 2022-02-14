@@ -1,4 +1,4 @@
-package com.rodrigo.parkingcontrol.dtos;
+package com.rodrigo.parkingcontrol.modules.parking.dtos;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;

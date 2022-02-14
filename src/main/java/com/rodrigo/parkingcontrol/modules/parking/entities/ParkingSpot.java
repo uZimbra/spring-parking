@@ -1,4 +1,4 @@
-package com.rodrigo.parkingcontrol.models;
+package com.rodrigo.parkingcontrol.modules.parking.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -7,7 +7,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "TB_PARKING_SPOT")
-public class ParkingSpotModel implements Serializable {
+public class ParkingSpot implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id

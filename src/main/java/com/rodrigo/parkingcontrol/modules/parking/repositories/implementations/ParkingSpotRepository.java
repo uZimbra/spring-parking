@@ -1,27 +1,26 @@
-package com.rodrigo.parkingcontrol.services;
+package com.rodrigo.parkingcontrol.modules.parking.repositories.implementations;
 
-import com.rodrigo.parkingcontrol.models.ParkingSpotModel;
-import com.rodrigo.parkingcontrol.repositories.ParkingSpotRepository;
+import com.rodrigo.parkingcontrol.modules.parking.entities.ParkingSpot;
+import com.rodrigo.parkingcontrol.modules.parking.repositories.IParkingSpotRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 @Service
-public class ParkingSpotService {
+public class ParkingSpotRepository {
 
-    final ParkingSpotRepository repository;
+    final IParkingSpotRepository repository;
 
-    public ParkingSpotService(ParkingSpotRepository repository) {
+    public ParkingSpotRepository(IParkingSpotRepository repository) {
         this.repository = repository;
     }
 
     @Transactional
-    public ParkingSpotModel save(ParkingSpotModel parkingSpot) {
+    public ParkingSpot save(ParkingSpot parkingSpot) {
         return this.repository.save(parkingSpot);
     }
 
@@ -37,16 +36,16 @@ public class ParkingSpotService {
         return this.repository.existsByApartmentAndBlock(apartment, block);
     }
 
-    public Page<ParkingSpotModel> findAll(Pageable pageable) {
+    public Page<ParkingSpot> findAll(Pageable pageable) {
         return this.repository.findAll(pageable);
     }
 
-    public Optional<ParkingSpotModel> findById(UUID id) {
+    public Optional<ParkingSpot> findById(UUID id) {
         return this.repository.findById(id);
     }
 
     @Transactional
-    public void delete(ParkingSpotModel data) {
+    public void delete(ParkingSpot data) {
         this.repository.delete(data);
     }
 }
